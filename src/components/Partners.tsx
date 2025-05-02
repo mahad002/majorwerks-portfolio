@@ -9,7 +9,7 @@ const Partners: React.FC = () => {
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold font-montserrat mb-6">Associated Partners</h2>
             <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-              Collaborating with industry leaders to deliver exceptional solutions.
+              Collaborating with Technical Partners for Enhanced Services.
             </p>
           </div>
           
