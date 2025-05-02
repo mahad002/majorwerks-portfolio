@@ -5,6 +5,7 @@ import Domains from '../components/Domains';
 import About from '../components/About';
 import Team from '../components/Team';
 import Blog from '../components/Blog';
+import Partners from '../components/Partners';
 import Contact from '../components/Contact';
 
 const HomePage: React.FC = () => {
@@ -16,6 +17,7 @@ const HomePage: React.FC = () => {
       <About />
       <Team />
       <Blog />
+      <Partners />
       <Contact />
     </>
   );
