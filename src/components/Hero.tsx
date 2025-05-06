@@ -1,10 +1,11 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Instagram, Linkedin } from 'lucide-react';
 import AudioSpectrum from './AudioSpectrum';
 import TypewriterEffect from './TypewriterEffect';
 
 const Hero: React.FC = () => {
   const blobRef = useRef<HTMLDivElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
   
   const taglines = [
     "Elevate your business with AI",
@@ -15,6 +16,7 @@ const Hero: React.FC = () => {
   ];
   
   useEffect(() => {
+    setIsLoading(false);
     const handleMouseMove = (e: MouseEvent) => {
       if (!blobRef.current) return;
       
@@ -38,7 +40,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-b from-navy-900/95 via-navy-800/90 to-navy-900/95 flex flex-col justify-center overflow-hidden backdrop-blur-3xl">
+    <section className="relative min-h-screen bg-gradient-to-b from-navy-900/95 via-navy-800/90 to-navy-900/95 flex flex-col justify-center overflow-hidden backdrop-blur-3xl transition-opacity duration-500" style={{ opacity: isLoading ? 0 : 1 }}>
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-500/10 rounded-full filter blur-3xl animate-blob" />

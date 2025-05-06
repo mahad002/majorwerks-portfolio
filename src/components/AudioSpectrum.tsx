@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { createNoise3D } from 'simplex-noise';
 
@@ -17,6 +17,7 @@ const AudioSpectrum: React.FC<AudioSpectrumProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const noise3D = createNoise3D();
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -125,6 +126,7 @@ const AudioSpectrum: React.FC<AudioSpectrumProps> = ({
     // Animation loop
     const animate = () => {
       requestAnimationFrame(animate);
+      if (!isReady) setIsReady(true);
 
       sphere.rotation.x += 0.001;
       sphere.rotation.y += 0.002;
@@ -180,7 +182,7 @@ const AudioSpectrum: React.FC<AudioSpectrumProps> = ({
   return (
     <div 
       ref={containerRef} 
-      className="absolute inset-0 w-full h-full pointer-events-none opacity-75"
+      className={`absolute inset-0 w-full h-full pointer-events-none transition-opacity duration-500 ${isReady ? 'opacity-75' : 'opacity-0'}`}
       aria-hidden="true"
     />
   );
