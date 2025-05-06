@@ -10,8 +10,8 @@ interface TeamMemberProps {
 const TeamMember: React.FC<TeamMemberProps> = ({ name, role, description }) => {
   return (
     <div className="group">
-      <div className="mb-6 w-24 h-24 mx-auto bg-white/5 backdrop-blur-lg rounded-full flex items-center justify-center group-hover:bg-white/10 transition-colors duration-300 shadow-lg shadow-purple-500/20">
-        <User size={40} className="text-purple-400" />
+      <div className="mb-6 w-24 h-24 mx-auto bg-navy-800/30 backdrop-blur-lg rounded-full flex items-center justify-center group-hover:bg-navy-700/40 transition-colors duration-300 border border-white/5">
+        <User size={40} className="text-indigo-400" />
       </div>
       <div className="text-center">
         <h3 className="text-xl font-bold font-montserrat text-white mb-2">{name}</h3>

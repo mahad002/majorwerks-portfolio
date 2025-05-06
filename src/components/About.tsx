@@ -11,8 +11,8 @@ const About: React.FC = () => {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-montserrat mb-8">The vision</h2>
               
               <div className="space-y-12">
-                <div className="group relative bg-white/5 backdrop-blur-lg p-8 rounded-3xl hover:bg-white/10 transition-all duration-500 cursor-pointer shadow-lg shadow-purple-500/20">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-violet-600/20 to-fuchsia-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="group relative bg-navy-800/30 backdrop-blur-lg p-8 rounded-lg hover:bg-navy-700/40 transition-all duration-500 cursor-pointer border border-white/5">
+                  <div className="absolute -inset-1 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-lg"></div>
                   <div className="relative">
                     <h3 className="text-xl md:text-2xl font-bold mb-4">Our Mission</h3>
                     <p className="text-base md:text-lg text-gray-300 leading-relaxed">
@@ -36,7 +36,7 @@ const About: React.FC = () => {
                 
                 <a 
                   href="/vision" 
-                  className="group inline-flex items-center text-lg text-purple-400 hover:text-purple-300 transition-colors duration-300"
+                  className="group inline-flex items-center text-lg text-indigo-400 hover:text-indigo-300 transition-colors duration-300"
                 >
                   <span className="mr-2">Learn more about us</span>
                   <ArrowRight className="transform transition-transform duration-300 group-hover:translate-x-1" />

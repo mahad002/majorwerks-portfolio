@@ -16,7 +16,7 @@ const Blog: React.FC = () => {
           </div>
           
           <div className="text-center">
-            <div className="inline-block bg-white/5 backdrop-blur-lg px-8 py-4 rounded-full text-gray-300 mb-8 shadow-lg shadow-purple-500/20">
+            <div className="inline-block bg-navy-800/30 backdrop-blur-lg px-8 py-4 rounded-lg text-gray-300 mb-8 border border-white/5">
               Coming Soon
             </div>
             <p className="text-lg text-gray-400 max-w-xl mx-auto mb-12">
@@ -26,11 +26,11 @@ const Blog: React.FC = () => {
               <input 
                 type="email" 
                 placeholder="Enter your email" 
-                className="w-full px-6 py-3 bg-white/5 backdrop-blur-lg rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400"
+                className="w-full px-6 py-3 bg-navy-800/30 backdrop-blur-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white placeholder-gray-400 border border-white/5"
               />
               <button 
                 type="submit"
-                className="w-full sm:w-auto bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 text-white px-6 py-3 rounded-full transition-colors duration-300 flex items-center justify-center shadow-lg shadow-purple-500/20"
+                className="w-full sm:w-auto bg-gradient-primary text-white px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center hover:opacity-90"
               >
                 Subscribe
                 <ArrowRight size={16} className="ml-2" />

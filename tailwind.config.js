@@ -6,9 +6,9 @@ export default {
     extend: {
       colors: {
         navy: {
-          900: '#0A1929',
-          800: '#0F2942',
-          700: '#1A3D5C'
+          900: '#0B1221',
+          800: '#111827',
+          700: '#1F2937'
         }
       },
       fontFamily: {
@@ -16,8 +16,8 @@ export default {
         'open': ['Open Sans', 'sans-serif'],
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(to right, rgb(139, 92, 246), rgb(236, 72, 153))',
-        'gradient-dark': 'linear-gradient(to bottom, rgb(10, 25, 41), rgba(88, 28, 135, 0.5), rgb(10, 25, 41))'
+        'gradient-primary': 'linear-gradient(135deg, rgb(139, 92, 246) 0%, rgb(167, 139, 250) 100%)',
+        'gradient-dark': 'linear-gradient(180deg, rgb(11, 18, 33) 0%, rgb(17, 24, 39) 50%, rgb(11, 18, 33) 100%)'
       },
       animation: {
         blob: "blob 7s infinite",
@@ -25,17 +25,26 @@ export default {
       keyframes: {
         blob: {
           "0%": {
-            transform: "translate(0px, 0px) scale(1)",
+            transform: "translate(0px, 0px) scale(1) rotate(0deg)",
           },
           "33%": {
-            transform: "translate(30px, -50px) scale(1.1)",
+            transform: "translate(30px, -50px) scale(1.1) rotate(120deg)",
           },
           "66%": {
-            transform: "translate(-20px, 20px) scale(0.9)",
+            transform: "translate(-20px, 20px) scale(0.9) rotate(240deg)",
           },
           "100%": {
-            transform: "translate(0px, 0px) scale(1)",
+            transform: "translate(0px, 0px) scale(1) rotate(360deg)",
           },
+        }
+      },
+      animation: {
+        blob: "blob 20s infinite",
+      },
+      extend: {
+        transitionDelay: {
+          '2000': '2000ms',
+          '4000': '4000ms',
         }
       },
     },

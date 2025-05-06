@@ -10,20 +10,33 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => {
   return (
-    <div className="bg-navy-800/50 backdrop-blur-lg p-10 transition-all duration-300 hover:bg-navy-700/50 shadow-lg shadow-purple-500/20 group">
-      <div className="text-purple-400 mb-6">
-        {icon}
-      </div>
-      <h3 className="text-xl md:text-2xl font-bold font-montserrat mb-4 text-white">{title}</h3>
-      <p className="text-sm md:text-base text-gray-300 leading-relaxed font-open">{description}</p>
-      <div className="mt-6 pt-6 border-t border-white/10">
-        <Link 
-          to="/services" 
-          className="inline-flex items-center text-purple-400 font-medium group-hover:text-purple-300 transition-colors duration-300"
-        >
-          <span>Learn more</span>
-          <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
-        </Link>
+    <div className="relative group">
+      <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-all duration-500 rounded-lg"></div>
+      <div className="relative bg-navy-800/30 backdrop-blur-lg p-8 rounded-lg border border-white/5 overflow-hidden">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full -translate-y-16 translate-x-16 group-hover:translate-y-[-4rem] group-hover:translate-x-20 transition-all duration-500"></div>
+        <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-500/5 rounded-full translate-y-12 -translate-x-12 group-hover:translate-y-16 group-hover:-translate-x-16 transition-all duration-500"></div>
+        
+        <div className="relative">
+          <div className="flex items-center space-x-4 mb-6">
+            <div className="p-2 bg-indigo-500/10 rounded-lg">
+              <div className="text-indigo-400">
+                {icon}
+              </div>
+            </div>
+            <h3 className="text-xl md:text-2xl font-bold font-montserrat text-white">{title}</h3>
+          </div>
+          
+          <p className="text-sm md:text-base text-gray-300 leading-relaxed font-open mb-8">{description}</p>
+          
+          <Link 
+            to="/services" 
+            className="inline-flex items-center text-indigo-400 font-medium group-hover:text-indigo-300 transition-colors duration-300 relative"
+          >
+            <span className="relative z-10">Learn more</span>
+            <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
+            <div className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-400/20 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -67,13 +80,13 @@ const Services: React.FC = () => {
             </div>
             <Link
               to="/services"
-              className="w-full md:w-auto bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 text-white px-8 py-4 rounded-lg transition-colors duration-300 text-center shadow-lg shadow-purple-500/20"
+              className="w-full md:w-auto bg-gradient-primary text-white px-8 py-4 rounded-lg transition-all duration-300 text-center hover:opacity-90"
             >
               Explore more
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {services.map((service, index) => (
               <ServiceCard 
                 key={index}

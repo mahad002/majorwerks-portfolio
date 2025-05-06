@@ -34,7 +34,7 @@ const Contact: React.FC = () => {
               
               <div className="space-y-8">
                 <div className="flex items-start space-x-4">
-                  <Mail className="w-6 h-6 text-purple-400 mt-1" />
+                  <Mail className="w-6 h-6 text-indigo-400 mt-1" />
                   <div>
                     <h3 className="text-lg font-bold mb-1 text-white">Email</h3>
                     <p className="text-gray-300">hello@majorwerks.com</p>
@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <Phone className="w-6 h-6 text-purple-400 mt-1" />
+                  <Phone className="w-6 h-6 text-indigo-400 mt-1" />
                   <div>
                     <h3 className="text-lg font-bold mb-1 text-white">Phone</h3>
                     <p className="text-gray-300">+1 (555) 123-4567</p>
@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <MapPin className="w-6 h-6 text-purple-400 mt-1" />
+                  <MapPin className="w-6 h-6 text-indigo-400 mt-1" />
                   <div>
                     <h3 className="text-lg font-bold mb-1 text-white">Location</h3>
                     <p className="text-gray-300">123 AI Street, San Francisco, CA 94103</p>
@@ -71,7 +71,7 @@ const Contact: React.FC = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-lg rounded-sm focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400"
+                    className="w-full px-4 py-3 bg-navy-800/30 backdrop-blur-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white placeholder-gray-400 border border-white/5"
                     required
                   />
                 </div>
@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-lg rounded-sm focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400"
+                    className="w-full px-4 py-3 bg-navy-800/30 backdrop-blur-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white placeholder-gray-400 border border-white/5"
                     required
                   />
                 </div>
@@ -101,14 +101,14 @@ const Contact: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
-                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-lg rounded-sm focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400 resize-none"
+                    className="w-full px-4 py-3 bg-navy-800/30 backdrop-blur-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white placeholder-gray-400 resize-none border border-white/5"
                     required
                   ></textarea>
                 </div>
                 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 text-white px-8 py-4 rounded-sm transition-colors duration-300 flex items-center justify-center group shadow-lg shadow-purple-500/20"
+                  className="w-full bg-gradient-primary text-white px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center group hover:opacity-90"
                 >
                   <span>Send Message</span>
                   <Send size={18} className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />

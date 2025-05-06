@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Cursor from './components/Cursor';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import VisionPage from './pages/VisionPage';
@@ -10,6 +9,7 @@ import VisionPage from './pages/VisionPage';
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +32,6 @@ function App() {
   return (
     <Router>
       <div className="relative min-h-screen bg-neutral-100">
-        <Cursor />
         <Navbar scrolled={scrolled} menuOpen={menuOpen} toggleMenu={toggleMenu} />
         
         <main className="relative overflow-hidden">
