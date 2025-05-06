@@ -10,13 +10,13 @@ interface TeamMemberProps {
 const TeamMember: React.FC<TeamMemberProps> = ({ name, role, description }) => {
   return (
     <div className="group">
-      <div className="mb-6 w-24 h-24 mx-auto bg-neutral-200 rounded-full flex items-center justify-center group-hover:bg-neutral-300 transition-colors duration-300">
-        <User size={40} className="text-neutral-600" />
+      <div className="mb-6 w-24 h-24 mx-auto bg-white/5 backdrop-blur-lg rounded-full flex items-center justify-center group-hover:bg-white/10 transition-colors duration-300 shadow-lg shadow-purple-500/20">
+        <User size={40} className="text-purple-400" />
       </div>
       <div className="text-center">
-        <h3 className="text-xl font-bold font-montserrat text-neutral-800 mb-2">{name}</h3>
-        <p className="text-neutral-600 font-open mb-4">{role}</p>
-        <p className="text-neutral-500 font-open text-sm leading-relaxed">{description}</p>
+        <h3 className="text-xl font-bold font-montserrat text-white mb-2">{name}</h3>
+        <p className="text-gray-300 font-open mb-4">{role}</p>
+        <p className="text-gray-400 font-open text-sm leading-relaxed">{description}</p>
       </div>
     </div>
   );
@@ -42,12 +42,12 @@ const Team: React.FC = () => {
   ];
 
   return (
-    <section id="team" className="py-24 bg-neutral-100">
+    <section id="team" className="py-24 bg-gradient-dark">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold font-montserrat mb-6">Our Team</h2>
-            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl font-bold font-montserrat mb-6 text-white">Our Team</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Meet our leadership team driving innovation and growth.
             </p>
           </div>

@@ -35,12 +35,12 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled, menuOpen, toggleMenu }) => {
   };
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${scrolled ? 'bg-neutral-900 text-white py-6' : 'bg-transparent py-8'}`}>
+    <header className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${scrolled ? 'bg-white/5 backdrop-blur-lg text-white py-6' : 'bg-transparent py-8'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center">
           <Link 
             to="/"
-            className={`text-3xl font-bold font-montserrat tracking-tight ${menuOpen || window.location.pathname === '/vision' ? 'text-white' : scrolled ? 'text-white' : 'text-neutral-900'}`}
+            className="text-3xl font-bold font-montserrat tracking-tight text-white"
           >
             MajorWerks
           </Link>
@@ -57,15 +57,15 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled, menuOpen, toggleMenu }) => {
             aria-label={menuOpen ? "Close Menu" : "Open Menu"}
           >
             <div className="flex flex-col space-y-3 relative w-10 h-10">
-              <span className={`block w-10 h-[4px] origin-center transition-all duration-700 ease-in-out ${menuOpen ? 'bg-white rotate-45 translate-y-[7px]' : window.location.pathname === '/vision' ? 'bg-white' : scrolled ? 'bg-white' : 'bg-neutral-900'}`}></span>
-              <span className={`block w-10 h-[4px] origin-center transition-all duration-700 ease-in-out ${menuOpen ? 'bg-white -rotate-45 -translate-y-[7px]' : window.location.pathname === '/vision' ? 'bg-white' : scrolled ? 'bg-white' : 'bg-neutral-900'}`}></span>
+              <span className="block w-10 h-[4px] origin-center transition-all duration-700 ease-in-out bg-white"></span>
+              <span className="block w-10 h-[4px] origin-center transition-all duration-700 ease-in-out bg-white"></span>
             </div>
           </button>
         </div>
 
         {/* Overlay menu */}
         <div 
-          className={`fixed inset-0 bg-neutral-900/90 backdrop-blur-sm transition-all duration-700 ease-in-out ${menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
+          className={`fixed inset-0 bg-gradient-to-b from-navy-900/90 via-purple-900/50 to-navy-900/90 backdrop-blur-sm transition-all duration-700 ease-in-out ${menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
           style={{ zIndex: 40 }}
         >
           <div className="h-full pt-40 container mx-auto px-6 pr-12">
@@ -93,7 +93,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled, menuOpen, toggleMenu }) => {
                 </li>
                 <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '300ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
                   <Link 
-                    href="#team"
+                    to="#team"
                     className="relative block text-right text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group"
                     onClick={(e) => handleNavigation(e, '/#team')}
                   >
@@ -103,7 +103,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled, menuOpen, toggleMenu }) => {
                 </li>
                 <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '400ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
                   <Link 
-                    href="#blog"
+                    to="#blog"
                     className="relative block text-right text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group"
                     onClick={(e) => handleNavigation(e, '/#blog')}
                   >
@@ -113,7 +113,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled, menuOpen, toggleMenu }) => {
                 </li>
                 <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '450ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
                   <Link 
-                    href="#contact"
+                    to="#contact"
                     className="relative block text-right text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group"
                     onClick={(e) => handleNavigation(e, '/#contact')}
                   >

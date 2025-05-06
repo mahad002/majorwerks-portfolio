@@ -4,7 +4,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  @apply bg-neutral-100 text-neutral-800;
+  @apply bg-navy-900 text-white;
   cursor: none;
 }
 
@@ -28,4 +28,5 @@ html {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   scroll-behavior: smooth;
+  @apply bg-navy-900;
 }

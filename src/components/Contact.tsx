@@ -22,38 +22,38 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-neutral-200">
+    <section id="contact" className="py-24 bg-gradient-dark">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
-              <h2 className="text-5xl font-bold font-montserrat mb-8">Get in touch</h2>
-              <p className="text-xl text-neutral-600 mb-12">
+              <h2 className="text-5xl font-bold font-montserrat mb-8 text-white">Get in touch</h2>
+              <p className="text-xl text-gray-300 mb-12">
                 Ready to transform your business with AI? Let's discuss how we can help you achieve your goals.
               </p>
               
               <div className="space-y-8">
                 <div className="flex items-start space-x-4">
-                  <Mail className="w-6 h-6 text-neutral-800 mt-1" />
+                  <Mail className="w-6 h-6 text-purple-400 mt-1" />
                   <div>
-                    <h3 className="text-lg font-bold mb-1">Email</h3>
-                    <p className="text-neutral-600">hello@majorwerks.com</p>
+                    <h3 className="text-lg font-bold mb-1 text-white">Email</h3>
+                    <p className="text-gray-300">hello@majorwerks.com</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <Phone className="w-6 h-6 text-neutral-800 mt-1" />
+                  <Phone className="w-6 h-6 text-purple-400 mt-1" />
                   <div>
-                    <h3 className="text-lg font-bold mb-1">Phone</h3>
-                    <p className="text-neutral-600">+1 (555) 123-4567</p>
+                    <h3 className="text-lg font-bold mb-1 text-white">Phone</h3>
+                    <p className="text-gray-300">+1 (555) 123-4567</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <MapPin className="w-6 h-6 text-neutral-800 mt-1" />
+                  <MapPin className="w-6 h-6 text-purple-400 mt-1" />
                   <div>
-                    <h3 className="text-lg font-bold mb-1">Location</h3>
-                    <p className="text-neutral-600">123 AI Street, San Francisco, CA 94103</p>
+                    <h3 className="text-lg font-bold mb-1 text-white">Location</h3>
+                    <p className="text-gray-300">123 AI Street, San Francisco, CA 94103</p>
                   </div>
                 </div>
               </div>
@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
             <div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-neutral-600 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Name
                   </label>
                   <input
@@ -71,13 +71,13 @@ const Contact: React.FC = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white rounded-sm focus:outline-none focus:ring-2 focus:ring-neutral-400"
+                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-lg rounded-sm focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400"
                     required
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-neutral-600 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                     Email
                   </label>
                   <input
@@ -86,13 +86,13 @@ const Contact: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white rounded-sm focus:outline-none focus:ring-2 focus:ring-neutral-400"
+                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-lg rounded-sm focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400"
                     required
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-neutral-600 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                     Message
                   </label>
                   <textarea
@@ -101,14 +101,14 @@ const Contact: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
-                    className="w-full px-4 py-3 bg-white rounded-sm focus:outline-none focus:ring-2 focus:ring-neutral-400 resize-none"
+                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-lg rounded-sm focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400 resize-none"
                     required
                   ></textarea>
                 </div>
                 
                 <button
                   type="submit"
-                  className="w-full bg-neutral-800 text-white px-8 py-4 rounded-sm hover:bg-neutral-700 transition-colors duration-300 flex items-center justify-center group"
+                  className="w-full bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 text-white px-8 py-4 rounded-sm transition-colors duration-300 flex items-center justify-center group shadow-lg shadow-purple-500/20"
                 >
                   <span>Send Message</span>
                   <Send size={18} className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
