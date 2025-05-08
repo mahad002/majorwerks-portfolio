@@ -1,5 +1,5 @@
-import React, { memo, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 interface NavbarProps {
@@ -8,24 +8,35 @@ interface NavbarProps {
   toggleMenu: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = memo(({ scrolled, menuOpen, toggleMenu }) => {
+const Navbar: React.FC<NavbarProps> = ({ scrolled, menuOpen, toggleMenu }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleNavigation = useCallback((path: string) => {
-    navigate(path);
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    const [route, section] = path.split('#');
+    
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation to complete before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
     toggleMenu();
-  }, [navigate, toggleMenu]);
-
-  const menuItems = [
-    { path: '/', label: 'Home' },
-    { path: '/services', label: 'Services' },
-    { path: '/vision', label: 'Vision' }
-  ];
+  };
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${scrolled ? 'bg-white/5 backdrop-blur-lg text-white py-4' : 'bg-transparent py-6'}`}>
-      <div className="container mx-auto px-6 flex justify-between items-center">
+    <header className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${scrolled ? 'bg-white/5 backdrop-blur-lg text-white py-3 md:py-6' : 'bg-transparent py-4 md:py-8'}`}>
+      <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         <div className="flex items-center">
           <Link 
             to="/"
@@ -35,121 +46,96 @@ const Navbar: React.FC<NavbarProps> = memo(({ scrolled, menuOpen, toggleMenu }) 
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {menuItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`text-sm font-medium transition-colors duration-300 ${
-                location.pathname === item.path 
-                  ? 'text-indigo-400' 
-                  : 'text-white/70 hover:text-white'
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
         {/* Mobile menu button */}
-        <div className="md:hidden flex items-center">
+        <div className="flex items-center space-x-4 md:space-x-8 z-50 relative">
+          <span className={`text-xs md:text-sm uppercase tracking-widest transition-all duration-700 ${menuOpen ? 'opacity-100 translate-x-0 text-white' : 'opacity-0 translate-x-8'}`}>
+            {menuOpen ? 'Navigation' : ''}
+          </span>
           <button
-            onClick={toggleMenu}
-            className="relative w-10 h-10 focus:outline-none"
+            onClick={toggleMenu} 
+            className="relative focus:outline-none" 
             aria-label={menuOpen ? "Close Menu" : "Open Menu"}
           >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <motion.div
-                animate={menuOpen ? "open" : "closed"}
-                className="relative w-6 h-6"
-              >
-                <motion.span
-                  variants={{
-                    closed: { rotate: 0, y: 0 },
-                    open: { rotate: 45, y: 0 }
-                  }}
-                  className="absolute block w-6 h-0.5 bg-white"
-                />
-                <motion.span
-                  variants={{
-                    closed: { opacity: 1 },
-                    open: { opacity: 0 }
-                  }}
-                  className="absolute block w-6 h-0.5 bg-white top-2"
-                />
-                <motion.span
-                  variants={{
-                    closed: { rotate: 0, y: 0 },
-                    open: { rotate: -45, y: 0 }
-                  }}
-                  className="absolute block w-6 h-0.5 bg-white top-4"
-                />
-              </motion.div>
+            <div className="flex flex-col space-y-2 md:space-y-3 relative w-8 h-8 md:w-10 md:h-10">
+              <span className={`block w-8 md:w-10 h-[3px] md:h-[4px] origin-center transition-all duration-700 ease-in-out bg-white ${menuOpen ? 'rotate-45 translate-y-2.5 md:translate-y-3.5' : ''}`}></span>
+              <span className={`block w-8 md:w-10 h-[3px] md:h-[4px] origin-center transition-all duration-700 ease-in-out bg-white ${menuOpen ? '-rotate-45 -translate-y-2.5 md:-translate-y-3.5' : ''}`}></span>
             </div>
           </button>
         </div>
+
+        {/* Overlay menu */}
+        <div 
+          className={`fixed inset-0 bg-gradient-to-b from-navy-900/90 via-purple-900/50 to-navy-900/90 backdrop-blur-sm transition-all duration-700 ease-in-out ${menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
+          style={{ zIndex: 40 }}
+        >
+          <div className="h-full pt-24 md:pt-40 container mx-auto px-4 md:px-6 pr-8 md:pr-12">
+            <nav className="max-w-[90rem] ml-auto w-fit">
+              <ul className="flex flex-col space-y-6 md:space-y-8">
+                <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '100ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
+                  <Link 
+                    to="/services" 
+                    className="relative block text-right text-2xl md:text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group"
+                    onClick={toggleMenu}
+                  >
+                    Services
+                    <span className="absolute -right-6 md:-right-8 top-1/2 -translate-y-1/2 w-1.5 md:w-2 h-1.5 md:h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </Link>
+                </li>
+                <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '200ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
+                  <Link 
+                    to="/vision" 
+                    className="relative block text-right text-2xl md:text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group"
+                    onClick={toggleMenu}
+                  >
+                    Vision
+                    <span className="absolute -right-6 md:-right-8 top-1/2 -translate-y-1/2 w-1.5 md:w-2 h-1.5 md:h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </Link>
+                </li>
+                <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '300ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
+                  <Link 
+                    to="#team"
+                    className="relative block text-right text-2xl md:text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group"
+                    onClick={(e) => handleNavigation(e, '/#team')}
+                  >
+                    Team
+                    <span className="absolute -right-6 md:-right-8 top-1/2 -translate-y-1/2 w-1.5 md:w-2 h-1.5 md:h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </Link>
+                </li>
+                <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '400ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
+                  <Link 
+                    to="#blog"
+                    className="relative block text-right text-2xl md:text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group"
+                    onClick={(e) => handleNavigation(e, '/#blog')}
+                  >
+                    Blog
+                    <span className="absolute -right-6 md:-right-8 top-1/2 -translate-y-1/2 w-1.5 md:w-2 h-1.5 md:h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </Link>
+                </li>
+                <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '450ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
+                  <Link 
+                    to="#contact"
+                    className="relative block text-right text-2xl md:text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group"
+                    onClick={(e) => handleNavigation(e, '/#contact')}
+                  >
+                    Contact
+                    <span className="absolute -right-6 md:-right-8 top-1/2 -translate-y-1/2 w-1.5 md:w-2 h-1.5 md:h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </Link>
+                </li>
+                <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '500ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
+                  <div className="flex justify-end">
+                    <button className="relative text-right text-2xl md:text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group bg-white/30 backdrop-blur-sm px-6 md:px-8 py-2 md:py-3 hover:bg-white/40">
+                    Got an idea?
+                    <span className="absolute -right-6 md:-right-8 top-1/2 -translate-y-1/2 w-1.5 md:w-2 h-1.5 md:h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
       </div>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-0 bg-navy-900/95 backdrop-blur-3xl z-40"
-          >
-            <div className="container mx-auto px-6 h-full flex flex-col">
-              <div className="flex justify-end py-6">
-                <button
-                  onClick={toggleMenu}
-                  className="text-white/70 hover:text-white transition-colors"
-                  aria-label="Close Menu"
-                >
-                  <span className="sr-only">Close Menu</span>
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              
-              <nav className="flex-1 flex items-center justify-center">
-                <ul className="space-y-8 text-center">
-                  {menuItems.map((item, index) => (
-                    <motion.li
-                      key={item.path}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                    >
-                      <button
-                        onClick={() => handleNavigation(item.path)}
-                        className={`text-2xl font-bold transition-colors duration-300 ${
-                          location.pathname === item.path 
-                            ? 'text-indigo-400' 
-                            : 'text-white hover:text-indigo-400'
-                        }`}
-                      >
-                        {item.label}
-                      </button>
-                    </motion.li>
-                  ))}
-                </ul>
-              </nav>
-
-              <div className="py-8 text-center text-white/50 text-sm">
-                © {new Date().getFullYear()} MajorWerks. All rights reserved.
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
-});
-
-Navbar.displayName = 'Navbar';
+};
 
 export default Navbar;
