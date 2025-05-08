@@ -48,108 +48,15 @@ const VisionPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-32 pb-24 bg-gradient-dark text-white min-h-screen">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <Link 
-            to="/" 
-            className="text-sm text-gray-400 hover:text-white transition-colors duration-300 mb-8 inline-block"
-          >
-            ← Back to Home
-          </Link>
-
-          {/* Vision Section */}
-          <section className="mb-24">
-            <h1 className="text-5xl font-bold font-montserrat mb-12">Our Vision</h1>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              <div className="space-y-12">
-                <div className="group relative bg-navy-800/30 backdrop-blur-lg p-8 rounded-3xl hover:bg-navy-700/40 transition-all duration-500 border border-white/5">
-                  <div className="absolute -inset-1 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl"></div>
-                  <div className="relative">
-                    <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
-                    <p className="text-lg text-gray-300 leading-relaxed">
-                      We aim to make a significant impact in future tech, and build solutions 
-                      which can be used by the people around us. Our goal is to democratize 
-                      AI and make it accessible to businesses of all sizes.
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="group relative bg-navy-800/30 backdrop-blur-lg p-8 rounded-3xl hover:bg-navy-700/40 transition-all duration-500 border border-white/5">
-                  <div className="absolute -inset-1 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl"></div>
-                  <div className="relative">
-                    <h3 className="text-2xl font-bold mb-4">Our Story</h3>
-                    <p className="text-lg text-gray-300 leading-relaxed">
-                      Founded in 2022, MajorWerks has quickly established itself as an innovative 
-                      force in the AI industry. We specialize in creating intelligent solutions 
-                      that transform how businesses operate, focusing on practical applications 
-                      of cutting-edge technology.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="group relative bg-navy-800/30 backdrop-blur-lg p-8 rounded-3xl hover:bg-navy-700/40 transition-all duration-500 border border-white/5">
-                  <div className="absolute -inset-1 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl"></div>
-                  <div className="relative">
-                    <h3 className="text-2xl font-bold mb-4">Our Values</h3>
-                    <p className="text-lg text-gray-300 leading-relaxed">
-                      Innovation, integrity, and impact drive everything we do. We believe in 
-                      creating solutions that not only solve today's challenges but also 
-                      anticipate tomorrow's needs.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="relative flex items-center justify-center">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/10 rounded-3xl transform rotate-12 transition-all duration-500 hover:rotate-6"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-violet-500/10 rounded-2xl transform -rotate-12 transition-all duration-500 hover:-rotate-6"></div>
-
-                <div className="relative w-full max-w-md aspect-square group bg-gradient-to-br from-violet-600/20 to-fuchsia-600/20 rounded-3xl p-12 transform rotate-3 transition-all duration-500 hover:rotate-6">
-                  <div className="absolute inset-0 bg-white/5 rounded-3xl transform -rotate-3 transition-all duration-500 group-hover:-rotate-6"></div>
-                  <div className="relative z-10 h-full flex flex-col justify-center space-y-6">
-                    <h3 className="text-4xl font-bold text-white">Innovation Through Intelligence</h3>
-                    <p className="text-lg text-gray-300 leading-relaxed">
-                      We believe in harnessing the power of AI to create solutions that not only 
-                      solve problems but transform how businesses operate in the digital age.
-                    </p>
-                    <div className="pt-4">
-                      <span className="inline-block text-purple-400 text-sm font-medium tracking-wider uppercase">Est. 2022</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Team Section */}
-          <section>
-            <h2 className="text-4xl font-bold font-montserrat mb-12">Our Team</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teamMembers.map((member, index) => (
-                <TeamMember 
-                  key={index}
-                  name={member.name}
-                  role={member.role}
-                  description={member.description}
-                />
-              ))}
-            </div>
-
-            <div className="mt-16 text-center">
-              <Link
-                to="/services"
-                className="inline-flex items-center space-x-2 bg-gradient-primary text-white px-8 py-4 rounded-full transition-all duration-300 group hover:opacity-90"
-              >
-                <span>Explore our services</span>
-                <ArrowRight className="transform transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </section>
-          
-          {/* Book Call Section */}
-          <BookCall />
+    <div className="min-h-screen pt-24">
+      <div className="container mx-auto px-4">
+        <h1 className="text-4xl md:text-6xl font-bold text-white mb-8">
+          Our Vision
+        </h1>
+        <div className="prose prose-invert max-w-none">
+          <p className="text-xl text-gray-300">
+            We envision a future where technology empowers businesses to achieve their full potential.
+          </p>
         </div>
       </div>
     </div>

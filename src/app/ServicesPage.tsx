@@ -135,22 +135,99 @@ const ServicesPage: React.FC = () => {
   ], []);
 
   return (
-    <div className="min-h-screen pt-24">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-8">
-          Our Services
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <ServiceCard 
-              key={index}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              features={service.features}
-            />
-          ))}
+    <div className="pt-32 pb-24 bg-gradient-dark">
+      <div className="container mx-auto px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-16">
+            <Link 
+              to="/" 
+              className="text-sm text-gray-400 hover:text-white transition-colors duration-300 mb-8 inline-block"
+            >
+              ← Back to Home
+            </Link>
+            <h1 className="text-5xl font-bold font-montserrat mb-6 text-white">Our Services</h1>
+            <p className="text-xl text-gray-300 max-w-3xl">
+              We offer a comprehensive range of AI and technology services to help businesses 
+              innovate and grow in the digital age. Explore our services below to learn how 
+              we can help transform your business.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <ServiceCard 
+                key={index}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                features={service.features}
+              />
+            ))}
+          </div>
+          
+          <div className="mt-16 text-center">
+            <h2 className="text-3xl font-bold font-montserrat mb-6 text-white">Ready to Get Started?</h2>
+            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+              Contact us to discuss how we can help you achieve your business goals with our 
+              innovative solutions.
+            </p>
+            <Link
+              to="/#contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white rounded-lg hover:opacity-90 transition-all duration-300"
+            >
+              Contact Us
+            </Link>
+          </div>
         </div>
+        
+        {/* Screenshot Showcase */}
+        <div className="relative mt-32 mb-24 overflow-hidden rounded-3xl bg-navy-800/30 backdrop-blur-lg border border-white/5">
+          <div className="absolute inset-0">
+            <div className="absolute top-1/4 -left-48 w-96 h-96 bg-indigo-500/10 rounded-full filter blur-3xl"></div>
+            <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-violet-500/10 rounded-full filter blur-3xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-violet-500/10 opacity-50"></div>
+          </div>
+          
+          <div className="relative px-8 py-12 md:p-12">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold font-montserrat mb-6 text-white">Our Latest Work</h2>
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                See how we've helped businesses transform their operations with AI-powered solutions.
+              </p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="relative mx-auto max-w-5xl"
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-indigo-500/10">
+                <img 
+                  src="https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg" 
+                  alt="AI Dashboard Interface" 
+                  className="w-full h-auto"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <h3 className="text-2xl font-bold text-white mb-2">AI-Powered Analytics Dashboard</h3>
+                  <p className="text-gray-300">
+                    Custom-built dashboard providing real-time insights and predictive analytics.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+        
+        {/* Book Call Section */}
+        <BookCall />
       </div>
     </div>
   );

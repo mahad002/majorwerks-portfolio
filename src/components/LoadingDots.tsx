@@ -7,13 +7,12 @@ const LoadingDots: React.FC = () => {
     animate: {
       scale: [1, 1.4, 1],
       opacity: [1, 0.6, 1],
-      y: [0, -12, 0]
+      y: [0, -8, 0]
     },
     transition: {
-      duration: 2.5,
+      duration: 1.5,
       repeat: Infinity,
-      ease: "easeInOut",
-      times: [0, 0.5, 1]
+      ease: "easeInOut"
     }
   }), []);
 
@@ -35,12 +34,12 @@ const LoadingDots: React.FC = () => {
           />
           <motion.div
             {...dotAnimation}
-            transition={{ ...dotAnimation.transition, delay: 0.3 }}
+            transition={{ ...dotAnimation.transition, delay: 0.2 }}
             className="w-5 h-5 bg-violet-500 rounded-full shadow-lg shadow-violet-500/20"
           />
           <motion.div
             {...dotAnimation}
-            transition={{ ...dotAnimation.transition, delay: 0.6 }}
+            transition={{ ...dotAnimation.transition, delay: 0.4 }}
             className="w-5 h-5 bg-fuchsia-500 rounded-full shadow-lg shadow-fuchsia-500/20"
           />
         </div>
