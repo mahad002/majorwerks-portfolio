@@ -7,6 +7,7 @@ import Team from '../components/Team';
 import Blog from '../components/Blog';
 import Partners from '../components/Partners';
 import Contact from '../components/Contact';
+import BookCall from '../components/BookCall';
 
 const HomePage: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const HomePage: React.FC = () => {
       <Domains />
       <About />
       <Team />
+      <BookCall />
       <Blog />
       <Partners />
       <Contact />

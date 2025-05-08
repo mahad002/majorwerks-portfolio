@@ -19,15 +19,18 @@ const Footer: React.FC = () => {
               <ul className="space-y-4 text-gray-400">
                 <li className="flex items-start">
                   <Mail size={18} className="mr-3 mt-1 flex-shrink-0" />
-                  <span>hello@majorwerks.com</span>
+                  <span>info@majorwerks.com</span>
                 </li>
                 <li className="flex items-start">
                   <Phone size={18} className="mr-3 mt-1 flex-shrink-0" />
-                  <span>+1 (555) 123-4567</span>
+                  <div className="flex flex-col">
+                    <span>US office: +1 (571) 508-9086</span>
+                    <span>Middle East office: +974 7086 7033</span>
+                  </div>
                 </li>
                 <li className="flex items-start">
                   <MapPin size={18} className="mr-3 mt-1 flex-shrink-0" />
-                  <span>123 AI Street, San Francisco, CA 94103</span>
+                  <span>Office 805- 105, Owned by SHAIKH SUHAIL MAKTOUM JUMA ALMAKTOUM, Port Saeed</span>
                 </li>
               </ul>
             </div>

@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, memo, useCallback } from 'react';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 
-const Contact: React.FC = () => {
+const Contact = memo(() => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
     console.log('Form submitted:', formData);
-  };
+  }, [formData]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
-  };
+  }, []);
 
   return (
     <section id="contact" className="py-24 bg-gradient-dark">
@@ -37,15 +37,18 @@ const Contact: React.FC = () => {
                   <Mail className="w-6 h-6 text-indigo-400 mt-1" />
                   <div>
                     <h3 className="text-lg font-bold mb-1 text-white">Email</h3>
-                    <p className="text-gray-300">hello@majorwerks.com</p>
+                    <p className="text-gray-300">info@majorwerks.com</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-4">
                   <Phone className="w-6 h-6 text-indigo-400 mt-1" />
                   <div>
-                    <h3 className="text-lg font-bold mb-1 text-white">Phone</h3>
-                    <p className="text-gray-300">+1 (555) 123-4567</p>
+                    <h3 className="text-lg font-bold mb-1 text-white">Contact</h3>
+                    <div className="space-y-1">
+                      <p className="text-gray-300">US office: +1 (571) 508-9086</p>
+                      <p className="text-gray-300">Middle East office: +974 7086 7033</p>
+                    </div>
                   </div>
                 </div>
                 
@@ -53,7 +56,7 @@ const Contact: React.FC = () => {
                   <MapPin className="w-6 h-6 text-indigo-400 mt-1" />
                   <div>
                     <h3 className="text-lg font-bold mb-1 text-white">Location</h3>
-                    <p className="text-gray-300">123 AI Street, San Francisco, CA 94103</p>
+                    <p className="text-gray-300">Office 805- 105, Owned by SHAIKH SUHAIL MAKTOUM JUMA ALMAKTOUM, Port Saeed</p>
                   </div>
                 </div>
               </div>
@@ -120,6 +123,8 @@ const Contact: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+Contact.displayName = 'Contact';
 
 export default Contact;

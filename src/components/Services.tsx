@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, useMemo } from 'react';
 import { BrainCircuit, Bot, Cpu, Workflow } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -8,42 +8,42 @@ interface ServiceCardProps {
   description: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => {
+const ServiceCard: React.FC<ServiceCardProps> = memo(({ icon, title, description }) => {
   return (
-    <div className="relative group">
-      <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-all duration-500 rounded-lg"></div>
-      <div className="relative bg-navy-800/30 backdrop-blur-lg p-8 rounded-lg border border-white/5 overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full -translate-y-16 translate-x-16 group-hover:translate-y-[-4rem] group-hover:translate-x-20 transition-all duration-500"></div>
-        <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-500/5 rounded-full translate-y-12 -translate-x-12 group-hover:translate-y-16 group-hover:-translate-x-16 transition-all duration-500"></div>
-        
-        <div className="relative">
-          <div className="flex items-center space-x-4 mb-6">
-            <div className="p-2 bg-indigo-500/10 rounded-lg">
-              <div className="text-indigo-400">
-                {icon}
-              </div>
+    <div className="group relative">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-all duration-500 rounded-lg"></div>
+      </div>
+      <div className="relative bg-navy-800/30 backdrop-blur-lg p-8 rounded-lg border border-white/5">
+        <div className="flex items-center space-x-4 mb-6">
+          <div className="relative p-2">
+            <div className="absolute inset-0 bg-indigo-500/10 rounded-full filter blur-md transform rotate-45"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-violet-500/20 rounded-full transform -rotate-12"></div>
+            <div className="relative p-2 bg-navy-800/50 backdrop-blur-sm rounded-xl">
+            <div className="text-indigo-400">
+              {icon}
             </div>
-            <h3 className="text-xl md:text-2xl font-bold font-montserrat text-white">{title}</h3>
+            </div>
           </div>
-          
-          <p className="text-sm md:text-base text-gray-300 leading-relaxed font-open mb-8">{description}</p>
-          
-          <Link 
-            to="/services" 
-            className="inline-flex items-center text-indigo-400 font-medium group-hover:text-indigo-300 transition-colors duration-300 relative"
-          >
-            <span className="relative z-10">Learn more</span>
-            <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
-            <div className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-400/20 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-          </Link>
+          <h3 className="text-xl font-semibold text-white">{title}</h3>
         </div>
+        <p className="text-sm md:text-base text-gray-300 leading-relaxed font-open mb-8">{description}</p>
+          
+        <Link 
+          to="/services" 
+          className="inline-flex items-center text-indigo-400 font-medium group-hover:text-indigo-300 transition-colors duration-300 relative"
+        >
+          <span className="relative z-10">Learn more</span>
+          <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
+          <div className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-400/20 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+        </Link>
       </div>
     </div>
   );
-};
+});
 
 const Services: React.FC = () => {
-  const services = [
+  const services = useMemo(() => [
     {
       icon: <BrainCircuit size={32} strokeWidth={1.5} />,
       title: "Machine Learning Solutions",
@@ -64,7 +64,7 @@ const Services: React.FC = () => {
       title: "AI Integration",
       description: "Seamless integration of AI capabilities into your existing software and business infrastructure."
     }
-  ];
+  ], []);
 
   return (
     <section id="services" className="py-24 bg-navy-900">

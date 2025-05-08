@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface TypewriterEffectProps {
@@ -8,12 +8,7 @@ interface TypewriterEffectProps {
   pauseDuration?: number;
 }
 
-const TypewriterEffect: React.FC<TypewriterEffectProps> = ({
-  phrases,
-  typingSpeed = 150,
-  deletingSpeed = 100,
-  pauseDuration = 2000,
-}) => {
+const TypewriterEffect = memo(({ phrases, typingSpeed = 150, deletingSpeed = 100, pauseDuration = 2000 }: TypewriterEffectProps) => {
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -50,7 +45,7 @@ const TypewriterEffect: React.FC<TypewriterEffectProps> = ({
           transition={{ duration: 0.3, ease: "easeOut" }}
           className="flex items-center gap-2"
         >
-          <span className="text-2xl md:text-3xl bg-gradient-primary text-transparent bg-clip-text font-bold">
+          <span className="text-1xl md:text-3xl bg-gradient-primary text-transparent bg-clip-text font-bold">
             {currentText}
           </span>
           <motion.span
@@ -62,6 +57,8 @@ const TypewriterEffect: React.FC<TypewriterEffectProps> = ({
       </div>
     </AnimatePresence>
   );
-};
+});
+
+TypewriterEffect.displayName = 'TypewriterEffect';
 
 export default TypewriterEffect;

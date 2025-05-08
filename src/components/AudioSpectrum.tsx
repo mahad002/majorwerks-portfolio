@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, memo } from 'react';
 import * as THREE from 'three';
 import { createNoise3D } from 'simplex-noise';
 
@@ -11,7 +11,7 @@ interface AudioSpectrumProps {
   };
 }
 
-const AudioSpectrum: React.FC<AudioSpectrumProps> = ({ 
+const AudioSpectrum = memo<AudioSpectrumProps>(({ 
   scale = 1,
   position = { x: -22, y: 0, z: 90 }
 }) => {
@@ -186,6 +186,8 @@ const AudioSpectrum: React.FC<AudioSpectrumProps> = ({
       aria-hidden="true"
     />
   );
-};
+});
+
+AudioSpectrum.displayName = 'AudioSpectrum';
 
 export default AudioSpectrum;

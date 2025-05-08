@@ -1,19 +1,19 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, memo, useMemo } from 'react';
 import { Instagram, Linkedin } from 'lucide-react';
 import AudioSpectrum from './AudioSpectrum';
 import TypewriterEffect from './TypewriterEffect';
 
-const Hero: React.FC = () => {
+const Hero = memo(() => {
   const blobRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   
-  const taglines = [
+  const taglines = useMemo(() => [
     "Elevate your business with AI",
     "Transform data into insights",
     "Automate with intelligence",
     "Scale your operations seamlessly",
     "Innovate with cutting-edge tech"
-  ];
+  ], []);
   
   useEffect(() => {
     setIsLoading(false);
@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
       
       <div className="container mx-auto px-6 relative z-20">
         <div className="max-w-6xl mx-auto text-left md:text-center">
-          <h1 className="relative text-3xl md:text-6xl lg:text-7xl font-montserrat text-white leading-tight tracking-tight mb-0">
+          <h1 className="relative text-2xl md:text-6xl lg:text-7xl font-montserrat text-white leading-tight tracking-tight mb-0">
             Ready to transform your <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-violet-200">business</span>{" "}
             <span className="font-bold relative">
               <span className="relative">
@@ -114,6 +114,8 @@ const Hero: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+Hero.displayName = 'Hero';
 
 export default Hero;
