@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
                 <li className="flex items-start">
                   <Phone size={18} className="mr-3 mt-1 flex-shrink-0" />
                   <div className="flex flex-col">
-                    <span>US office: +1 (571) 508-9086</span>
+                    <span>Consultation office: +1 (571) 508-9086</span>
                     <span>Middle East office: +974 7086 7033</span>
                   </div>
                 </li>
