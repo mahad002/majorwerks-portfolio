@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, User } from 'lucide-react';
-import BookCall from '../components/BookCall';
 
 interface TeamMemberProps {
   name: string;
@@ -24,7 +23,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ name, role, description }) => {
   );
 };
 
-const VisionPage: React.FC = () => {
+const Vision: React.FC = () => {
   const teamMembers = [
     {
       name: "Ehtisham",
@@ -144,13 +143,10 @@ const VisionPage: React.FC = () => {
               </Link>
             </div>
           </section>
-          
-          {/* Book Call Section */}
-          <BookCall />
         </div>
       </div>
     </div>
   );
 };
 
-export default VisionPage;
+export default Vision; 

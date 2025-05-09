@@ -56,7 +56,7 @@ const Hero = memo(() => {
       
       <div className="container mx-auto px-6 relative z-20">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="relative text-3xl md:text-6xl lg:text-7xl font-montserrat text-white leading-tight tracking-tight mb-0">
+          <h1 className="relative text-2xl md:text-6xl lg:text-7xl font-montserrat text-white leading-tight tracking-tight mb-0">
             Ready to transform your <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-violet-200">business</span>{" "}
             <span className="font-bold relative">
               <span className="relative">

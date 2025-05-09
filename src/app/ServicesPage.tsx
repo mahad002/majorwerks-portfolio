@@ -23,11 +23,11 @@ const ServiceCard: React.FC<ServiceCardProps> = memo(({ icon, title, description
         <div className="text-indigo-400 mb-6 w-12 h-12 flex items-center justify-center bg-indigo-500/10 rounded-lg">
           {icon}
         </div>
-        <h3 className="text-2xl font-bold font-montserrat mb-4 text-white">{title}</h3>
-        <p className="text-gray-300 leading-relaxed mb-6">{description}</p>
+        <h3 className="text-lg md:text-xl lg:text-2xl font-bold font-montserrat mb-3 md:mb-4 text-white">{title}</h3>
+        <p className="text-sm md:text-base text-gray-300 leading-relaxed mb-4 md:mb-6">{description}</p>
         <ul className="space-y-3">
           {features.map((feature, index) => (
-            <li key={index} className="flex items-center text-sm text-gray-400">
+            <li key={index} className="flex items-center text-xs md:text-sm text-gray-400">
               <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full mr-3" />
               {feature}
             </li>
@@ -145,8 +145,8 @@ const ServicesPage: React.FC = () => {
             >
               ← Back to Home
             </Link>
-            <h1 className="text-5xl font-bold font-montserrat mb-6 text-white">Our Services</h1>
-            <p className="text-xl text-gray-300 max-w-3xl">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-montserrat mb-4 md:mb-6 text-white">Our Services</h1>
+            <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl">
               We offer a comprehensive range of AI and technology services to help businesses 
               innovate and grow in the digital age. Explore our services below to learn how 
               we can help transform your business.
@@ -195,8 +195,8 @@ const ServicesPage: React.FC = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-bold font-montserrat mb-6 text-white">Our Latest Work</h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-montserrat mb-4 md:mb-6 text-white">Our Latest Work</h2>
+              <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto">
                 See how we've helped businesses transform their operations with AI-powered solutions.
               </p>
             </motion.div>
@@ -216,8 +216,8 @@ const ServicesPage: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">AI-Powered Analytics Dashboard</h3>
-                  <p className="text-gray-300">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">AI-Powered Analytics Dashboard</h3>
+                  <p className="text-sm md:text-base text-gray-300">
                     Custom-built dashboard providing real-time insights and predictive analytics.
                   </p>
                 </div>

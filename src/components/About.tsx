@@ -27,9 +27,7 @@ const About: React.FC = () => {
                   <div className="relative">
                     <h3 className="text-xl md:text-2xl font-bold mb-4">Our Story</h3>
                     <p className="text-base md:text-lg text-gray-300 leading-relaxed">
-                      Founded in 2022, MajorWerks has quickly established itself as an innovative 
-                      force in the AI industry. We specialize in creating intelligent solutions 
-                      that transform how businesses operate.
+                      Founded in May 2025 in collaboration with Inspirovix, MajorWerks was established by three young entrepreneurs with a bold vision: to automate every possible business process. Our founders recognized the transformative potential of automation in enhancing business production, quality, and consistency.
                     </p>
                   </div>
                 </div>
@@ -52,13 +50,13 @@ const About: React.FC = () => {
               {/* Main text container */}
               <div className="relative w-full max-w-md aspect-square group bg-gradient-to-br from-violet-600/20 to-fuchsia-600/20 backdrop-blur-lg rounded-3xl p-12 transform rotate-3 transition-all duration-500 hover:rotate-6 shadow-lg shadow-purple-500/30">
                 <div className="absolute inset-0 bg-white/5 rounded-3xl transform -rotate-3 transition-all duration-500 group-hover:-rotate-6"></div>
-                <div className="relative z-10 h-full flex flex-col justify-center space-y-6">
+                <div className="relative z-10 h-full mt-6 mb-6 flex flex-col justify-center space-y-6">
                   <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">Innovation Through Intelligence</h3>
                   <p className="text-base md:text-lg text-gray-300 leading-relaxed">
-                    We believe in harnessing the power of AI to create solutions that not only solve problems but transform how businesses operate in the digital age.
+                  We harness AI and automation to transform businesses, making operations more efficient, consistent, and high-quality no matter the size.
                   </p>
                   <div className="pt-4">
-                    <span className="inline-block text-purple-400 text-sm font-medium tracking-wider uppercase">Est. 2022</span>
+                    <span className="inline-block text-purple-400 text-sm font-medium tracking-wider uppercase">Est. May 2025</span>
                   </div>
                 </div>
               </div>

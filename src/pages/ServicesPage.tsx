@@ -9,7 +9,7 @@ interface ServiceCardProps {
   title: string;
   description: string;
   features: string[];
-}
+} 
 
 const ServiceCard: React.FC<ServiceCardProps> = memo(({ icon, title, description, features }) => {
   return (

@@ -7,7 +7,7 @@ const ServicesPage: NextPage = () => {
     <>
       <Services />
       <BookCall />
-    </>
+    </> 
   );
 };
 
