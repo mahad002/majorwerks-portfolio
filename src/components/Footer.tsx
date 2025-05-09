@@ -26,6 +26,7 @@ const Footer: React.FC = () => {
                   <div className="flex flex-col">
                     <span>Consultation office: +1 (571) 508-9086</span>
                     <span>Middle East office: +974 7086 7033</span>
+                    <span>Pakistan office: +92 310 5589303</span>
                   </div>
                 </li>
                 <li className="flex items-start">
