@@ -1,5 +1,4 @@
 import React from 'react';
-import { X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 interface NavbarProps {
@@ -73,6 +72,16 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled, menuOpen, toggleMenu }) => {
               <ul className="flex flex-col space-y-8">
                 <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '100ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
                   <Link 
+                    to="/about" 
+                    className="relative block text-right text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group"
+                    onClick={toggleMenu}
+                  >
+                    About
+                    <span className="absolute -right-8 top-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </Link>
+                </li>
+                <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '200ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
+                  <Link 
                     to="/services" 
                     className="relative block text-right text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group"
                     onClick={toggleMenu}
@@ -93,9 +102,9 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled, menuOpen, toggleMenu }) => {
                 </li>
                 <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '300ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
                   <Link 
-                    href="#team"
+                    to="/team"
                     className="relative block text-right text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group"
-                    onClick={(e) => handleNavigation(e, '/#team')}
+                    onClick={toggleMenu}
                   >
                     Team
                     <span className="absolute -right-8 top-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
@@ -103,31 +112,13 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled, menuOpen, toggleMenu }) => {
                 </li>
                 <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '400ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
                   <Link 
-                    href="#blog"
-                    className="relative block text-right text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group"
-                    onClick={(e) => handleNavigation(e, '/#blog')}
-                  >
-                    Blog
-                    <span className="absolute -right-8 top-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                  </Link>
-                </li>
-                <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '450ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
-                  <Link 
-                    href="#contact"
-                    className="relative block text-right text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group"
-                    onClick={(e) => handleNavigation(e, '/#contact')}
+                    to="/contact"
+                    className="relative block text-right text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group bg-white/10 px-6 py-2"
+                    onClick={toggleMenu}
                   >
                     Contact
                     <span className="absolute -right-8 top-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                   </Link>
-                </li>
-                <li className="transform transition-all duration-700 ease-in-out" style={{ transitionDelay: '500ms', transform: `translateX(${menuOpen ? '0' : '2rem'})`, opacity: menuOpen ? 1 : 0 }}>
-                  <div className="flex justify-end">
-                    <button className="relative text-right text-3xl font-montserrat font-bold text-white/50 hover:text-white transition-colors group bg-white/30 backdrop-blur-sm px-8 py-3 hover:bg-white/40">
-                    Got an idea?
-                    <span className="absolute -right-8 top-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                    </button>
-                  </div>
                 </li>
               </ul>
             </nav>

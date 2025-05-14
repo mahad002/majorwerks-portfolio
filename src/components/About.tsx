@@ -27,7 +27,7 @@ const About: React.FC = () => {
                   <div className="relative">
                     <h3 className="text-xl md:text-2xl font-bold mb-4">Our Story</h3>
                     <p className="text-base md:text-lg text-gray-300 leading-relaxed">
-                      Founded in Nov 2024 in collaboration with Inspirovix, MajorWerks was established by three young entrepreneurs with a bold vision: to automate every possible business process. Our founders recognized the transformative potential of automation in enhancing business production, quality, and consistency.
+                      Founded in May 2025 in collaboration with Inspirovix, MajorWerks was established by three young entrepreneurs with a bold vision: to automate every possible business process. Our founders recognized the transformative potential of automation in enhancing business production, quality, and consistency.
                     </p>
                   </div>
                 </div>
@@ -56,7 +56,7 @@ const About: React.FC = () => {
                   We harness AI and automation to transform businesses, making operations more efficient, consistent, and high-quality no matter the size.
                   </p>
                   <div className="pt-4">
-                    <span className="inline-block text-purple-400 text-sm font-medium tracking-wider uppercase">Est. Nov 2024</span>
+                    <span className="inline-block text-purple-400 text-sm font-medium tracking-wider uppercase">Est. May 2025</span>
                   </div>
                 </div>
               </div>

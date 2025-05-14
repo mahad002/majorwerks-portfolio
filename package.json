@@ -10,14 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
-    "framer-motion": "^11.0.3",
     "lucide-react": "^0.309.0",
+    "framer-motion": "^11.0.3",
+    "@emailjs/browser": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.3",
-    "simplex-noise": "^4.0.1",
-    "three": "^0.160.0"
+    "three": "^0.160.0",
+    "simplex-noise": "^4.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

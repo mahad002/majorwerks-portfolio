@@ -5,9 +5,11 @@
 body {
   font-family: 'Open Sans', sans-serif;
   @apply bg-navy-900 text-white overflow-x-hidden;
-  will-change: transform;
+  will-change: transform, opacity;
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
+  transform: translateZ(0);
+  perspective: 1000;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -24,6 +26,11 @@ html {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   scroll-behavior: smooth;
-  overscroll-behavior: none;
-  @apply bg-navy-900;
+  overscroll-behavior-y: none;
+  @apply bg-navy-900 overflow-x-hidden;
+}
+
+/* Add smooth transitions for all pages */
+.page-transition {
+  @apply transition-all duration-500 ease-in-out;
 }

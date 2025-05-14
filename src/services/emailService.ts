@@ -14,7 +14,7 @@ interface PricingInquiryData {
 }
 
 // Initialize EmailJS with your public key
-emailjs.init("7TpUFIasS5eHoxLh_");
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 export const sendContactEmail = async (data: ContactFormData) => {
   const { name, email, message } = data;
@@ -38,8 +38,8 @@ export const sendContactEmail = async (data: ContactFormData) => {
   
   try {
     await emailjs.send(
-      "service_majorwerks", // You'll need to update this with your service ID
-      "template_contact",   // You'll need to update this with your template ID
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID,
       templateParams
     );
     return { success: true };
@@ -70,8 +70,8 @@ export const sendPricingInquiryEmail = async (data: PricingInquiryData) => {
   
   try {
     const response = await emailjs.send(
-      "service_majorwerks", // You'll need to update this with your service ID
-      "template_pricing",   // You'll need to update this with your template ID
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_PRICING_TEMPLATE_ID,
       templateParams
     );
     return { success: true };
@@ -79,4 +79,4 @@ export const sendPricingInquiryEmail = async (data: PricingInquiryData) => {
     console.error('Email sending failed:', error);
     return { success: false, error: 'Failed to send email' };
   }
-}; 
+};

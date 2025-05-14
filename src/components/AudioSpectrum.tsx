@@ -124,9 +124,9 @@ const AudioSpectrum = memo<AudioSpectrumProps>(({
     };
 
     // Animation loop
+    let frameId: number;
     const animate = () => {
-      requestAnimationFrame(animate);
-      if (!isReady) setIsReady(true);
+      frameId = requestAnimationFrame(animate);
 
       sphere.rotation.x += 0.001;
       sphere.rotation.y += 0.002;
@@ -146,6 +146,7 @@ const AudioSpectrum = memo<AudioSpectrumProps>(({
       }
 
       renderer.render(scene, camera);
+      if (!isReady) setIsReady(true);
     };
     
     // Handle window resize
@@ -162,6 +163,9 @@ const AudioSpectrum = memo<AudioSpectrumProps>(({
     animate();
     
     return () => {
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('click', initAudio);
       
@@ -177,7 +181,7 @@ const AudioSpectrum = memo<AudioSpectrumProps>(({
         audioContext.close();
       }
     };
-  }, []);
+  }, [scale, position, noise3D]);
   
   return (
     <div 

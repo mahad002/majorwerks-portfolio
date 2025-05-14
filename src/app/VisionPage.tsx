@@ -81,7 +81,10 @@ const VisionPage: React.FC = () => {
                   <div className="relative">
                     <h3 className="text-2xl font-bold mb-4">Our Story</h3>
                     <p className="text-lg text-gray-300 leading-relaxed">
-                      Founded in Nov 2024 in collaboration with Inspirovix, MajorWerks was established by three young entrepreneurs with a bold vision: to automate every possible business process. Our founders recognized the transformative potential of automation in enhancing business production, quality, and consistency. We've quickly established ourselves as an innovative force in the AI industry, specializing in creating intelligent solutions that transform how businesses operate, focusing on practical applications of cutting-edge technology.
+                      Founded in 2022, MajorWerks has quickly established itself as an innovative 
+                      force in the AI industry. We specialize in creating intelligent solutions 
+                      that transform how businesses operate, focusing on practical applications 
+                      of cutting-edge technology.
                     </p>
                   </div>
                 </div>
@@ -93,8 +96,7 @@ const VisionPage: React.FC = () => {
                     <p className="text-lg text-gray-300 leading-relaxed">
                       Innovation, integrity, and impact drive everything we do. We believe in 
                       creating solutions that not only solve today's challenges but also 
-                      anticipate tomorrow's needs. Our commitment to automation excellence 
-                      helps businesses achieve unprecedented levels of efficiency and quality.
+                      anticipate tomorrow's needs.
                     </p>
                   </div>
                 </div>
@@ -104,18 +106,19 @@ const VisionPage: React.FC = () => {
                 <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/10 rounded-3xl transform rotate-12 transition-all duration-500 hover:rotate-6"></div>
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-violet-500/10 rounded-2xl transform -rotate-12 transition-all duration-500 hover:-rotate-6"></div>
 
-                <div className="relative w-full max-w-md aspect-square group bg-gradient-to-br from-violet-600/20 to-fuchsia-600/20 backdrop-blur-lg rounded-3xl p-12 transform rotate-3 transition-all duration-500 hover:rotate-6 shadow-lg shadow-purple-500/30">
-                <div className="absolute inset-0 bg-white/5 rounded-3xl transform -rotate-3 transition-all duration-500 group-hover:-rotate-6"></div>
-                <div className="relative z-10 h-full mt-6 mb-6 flex flex-col justify-center space-y-6">
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">Innovation Through Intelligence</h3>
-                  <p className="text-base md:text-lg text-gray-300 leading-relaxed">
-                  We harness AI and automation to transform businesses, making operations more efficient, consistent, and high-quality no matter the size.
-                  </p>
-                  <div className="pt-4">
-                    <span className="inline-block text-purple-400 text-sm font-medium tracking-wider uppercase">Est. Nov 2024</span>
+                <div className="relative w-full max-w-md aspect-square group bg-gradient-to-br from-violet-600/20 to-fuchsia-600/20 rounded-3xl p-12 transform rotate-3 transition-all duration-500 hover:rotate-6">
+                  <div className="absolute inset-0 bg-white/5 rounded-3xl transform -rotate-3 transition-all duration-500 group-hover:-rotate-6"></div>
+                  <div className="relative z-10 h-full flex flex-col justify-center space-y-6">
+                    <h3 className="text-4xl font-bold text-white">Innovation Through Intelligence</h3>
+                    <p className="text-lg text-gray-300 leading-relaxed">
+                      We believe in harnessing the power of AI to create solutions that not only 
+                      solve problems but transform how businesses operate in the digital age.
+                    </p>
+                    <div className="pt-4">
+                      <span className="inline-block text-purple-400 text-sm font-medium tracking-wider uppercase">Est. 2022</span>
+                    </div>
                   </div>
                 </div>
-              </div>
               </div>
             </div>
           </section>
