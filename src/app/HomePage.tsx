@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
+import Partners from '../components/Partners';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
@@ -9,6 +10,7 @@ const HomePage: React.FC = () => {
     <>
       <Hero />
       <Services />
+      <Partners />
       
       <section className="py-24 bg-gradient-dark">
         <div className="container mx-auto px-6">
