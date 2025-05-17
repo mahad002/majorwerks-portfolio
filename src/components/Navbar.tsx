@@ -1,5 +1,4 @@
 import React from 'react';
-import { X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 interface NavbarProps {
@@ -11,6 +10,18 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ scrolled, menuOpen, toggleMenu }) => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  // Prevent body scroll when menu is open
+  React.useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
 
   const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault();
@@ -56,17 +67,22 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled, menuOpen, toggleMenu }) => {
             className="relative focus:outline-none" 
             aria-label={menuOpen ? "Close Menu" : "Open Menu"}
           >
-            <div className="relative w-10 h-10 flex items-center justify-center">
-              <span className={`absolute block w-10 h-[4px] bg-white transition-all duration-700 ease-in-out ${menuOpen ? 'rotate-45' : 'translate-y-[-6px]'}`}></span>
-              <span className={`absolute block w-10 h-[4px] bg-white transition-all duration-700 ease-in-out ${menuOpen ? '-rotate-45' : 'translate-y-[6px]'}`}></span>
+            <div className="flex flex-col space-y-3 relative w-10 h-10">
+              <span className={`block w-10 h-[4px] origin-center transition-all duration-700 ease-in-out bg-white transform ${menuOpen ? 'rotate-45 translate-y-[14px]' : ''}`}></span>
+              <span className={`block w-10 h-[4px] origin-center transition-all duration-700 ease-in-out bg-white transform ${menuOpen ? '-rotate-45 -translate-y-[2px]' : ''}`}></span>
             </div>
           </button>
         </div>
 
         {/* Overlay menu */}
         <div 
-          className={`fixed inset-0 bg-gradient-to-b from-navy-900/90 via-purple-900/50 to-navy-900/90 backdrop-blur-sm transition-all duration-700 ease-in-out ${menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
+          className={`fixed inset-0 bg-gradient-to-b from-navy-900/95 via-purple-900/90 to-navy-900/95 backdrop-blur-lg transition-all duration-700 ease-in-out ${menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
           style={{ zIndex: 40 }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              toggleMenu();
+            }
+          }}
         >
           <div className="h-full pt-40 container mx-auto px-6 pr-12">
             <nav className="max-w-[90rem] ml-auto w-fit">
