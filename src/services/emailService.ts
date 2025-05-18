@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser';
 interface ContactFormData {
   name: string;
   email: string;
+  title: string;
   message: string;
 }
 
@@ -17,7 +18,7 @@ interface PricingInquiryData {
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 export const sendContactEmail = async (data: ContactFormData) => {
-  const { name, email, message } = data;
+  const { name, email, title, message } = data;
   
   // Get current date in a readable format
   const today = new Date().toLocaleDateString('en-US', {
@@ -29,6 +30,7 @@ export const sendContactEmail = async (data: ContactFormData) => {
   const templateParams = {
     to_name: "MajorWerks Team",
     from_name: name,
+    title: title || 'Website Contact',
     from_email: email,
     message: message,
     date: today,
@@ -49,6 +51,32 @@ export const sendContactEmail = async (data: ContactFormData) => {
   }
 };
 
+export const sendSubscriptionEmail = async (email: string) => {
+  const today = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+  
+  const templateParams = {
+    to_email: email,
+    date: today,
+    company_name: 'MajorWerks',
+    reply_to: 'noreply@majorwerks.com'
+  };
+  
+  try {
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_SUBSCRIBE_TEMPLATE_ID,
+      templateParams
+    );
+    return { success: true };
+  } catch (error) {
+    console.error('Subscription email sending failed:', error);
+    return { success: false, error: 'Failed to send subscription confirmation' };
+  }
+};
 export const sendPricingInquiryEmail = async (data: PricingInquiryData) => {
   const { planName, price, features, email } = data;
   

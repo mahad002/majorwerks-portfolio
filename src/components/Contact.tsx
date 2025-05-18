@@ -7,6 +7,7 @@ const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    title: '',
     message: ''
   });
   const [status, setStatus] = useState<{
@@ -100,7 +101,7 @@ const Contact: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -132,6 +133,22 @@ const Contact: React.FC = () => {
                     required
                     className="w-full px-4 py-2 bg-navy-900/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     placeholder="your.email@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="title" className="block text-sm font-medium text-gray-300 mb-2">
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    value={formData.title}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-2 bg-navy-900/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    placeholder="Website Contact"
                   />
                 </div>
 
