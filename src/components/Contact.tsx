@@ -36,7 +36,7 @@ const Contact: React.FC = () => {
           type: 'success',
           message: 'Thank you for your message! We will get back to you soon.'
         });
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', email: '', title: '', message: '' });
       } else {
         throw new Error(result.error);
       }
@@ -146,7 +146,6 @@ const Contact: React.FC = () => {
                     name="title"
                     value={formData.title}
                     onChange={handleChange}
-                    required
                     className="w-full px-4 py-2 bg-navy-900/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     placeholder="Website Contact"
                   />
@@ -161,7 +160,6 @@ const Contact: React.FC = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    required
                     rows={4}
                     className="w-full px-4 py-2 bg-navy-900/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     placeholder="Your message..."

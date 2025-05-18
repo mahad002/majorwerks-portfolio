@@ -30,9 +30,9 @@ export const sendContactEmail = async (data: ContactFormData) => {
   const templateParams = {
     to_name: "MajorWerks Team",
     from_name: name,
-    title: title || 'Website Contact',
+    title: title || 'No Subject',
     from_email: email,
-    message: message,
+    message: message || 'No message',
     date: today,
     company_name: 'MajorWerks',
     reply_to: email
